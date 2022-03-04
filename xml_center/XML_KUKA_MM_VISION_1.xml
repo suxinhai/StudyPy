@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    *****************************************
+    XML-File for Comunication Robot-Camera
+    XML_File for Send to Camera
+    *****************************************
+-->
+<ETHERNETKRL>
+    <CONFIGURATION>
+        <EXTERNAL>
+            <!--IP Adress and Port of Camera-->
+            <IP>192.168.100.50</IP>
+            <PORT>3000</PORT>
+        </EXTERNAL>
+        <INTERNAL>
+            <!--Alive Flag for Connection=TRUE-->
+            <ALIVE Set_Flag="872" />
+        </INTERNAL>
+    </CONFIGURATION>
+    <RECEIVE>
+        <XML>
+        </XML>
+    </RECEIVE>
+    <SEND>
+        <XML>
+            <!--Send to Camera-->
+            <ELEMENT Tag="ROBOT/TEL_ID"/>
+            <ELEMENT Tag="ROBOT/M_ID"></ELEMENT>
+            <ELEMENT Tag="ROBOT/J_ID"></ELEMENT>
+            <ELEMENT Tag="ROBOT/POS/@X"></ELEMENT>
+            <ELEMENT Tag="ROBOT/POS/@Y"></ELEMENT>
+            <ELEMENT Tag="ROBOT/POS/@Z"></ELEMENT>
+            <ELEMENT Tag="ROBOT/POS/@A"></ELEMENT>
+            <ELEMENT Tag="ROBOT/POS/@B"></ELEMENT>
+            <ELEMENT Tag="ROBOT/POS/@C"></ELEMENT>
+            <ELEMENT Tag="ROBOT/PAR"></ELEMENT>
+            <ELEMENT Tag="ROBOT/T"></ELEMENT>
+        </XML>
+    </SEND>
+</ETHERNETKRL>

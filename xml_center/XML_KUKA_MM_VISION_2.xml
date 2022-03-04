@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    *****************************************
+    XML-File for Comunication Robot-Camera
+    XML_File for Receive from Camera
+    *****************************************
+-->
+
+<ETHERNETKRL>
+    <CONFIGURATION>
+        <EXTERNAL>
+            <!--IP Adress and Port of Camera-->
+            <IP>192.168.100.50</IP>
+            <PORT>3001</PORT>
+        </EXTERNAL>
+        <INTERNAL>
+            <!--  <BUFFERING Mode="FIFO" LIMIT="32"/> -->
+            <!--Alive Flag for Connection=TRUE-->
+            <ALIVE Set_Flag="873"/>
+        </INTERNAL>
+    </CONFIGURATION>
+    <RECEIVE>
+        <XML>
+            <!--Receive from Camera-->
+            <ELEMENT Tag="VISION/TEL_ID" Type="INT"></ELEMENT>
+            <ELEMENT Tag="VISION/STAT_ID" Type="INT"></ELEMENT>
+            <ELEMENT Tag="VISION/ERR_ID" Type="INT"></ELEMENT>
+            <ELEMENT Tag="VISION/ERR_TEXT" Type="STRING"/>
+            <ELEMENT Tag="VISION/POS1" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS2" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS3" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS4" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS5" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS6" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS7" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS8" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS9" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/POS10" Type="FRAME"></ELEMENT>
+            <ELEMENT Tag="VISION/LABLE" Type="INT"></ELEMENT>
+            <ELEMENT Tag="VISION/POSNUM" Type="INT"></ELEMENT>
+            <ELEMENT Tag="VISION/PAR" Type="STRING"/>
+            <ELEMENT Tag="VISION/T" Type="STRING"/>
+            <!--Flag for Data Transfer completed-->
+            <ELEMENT Tag="VISION" Set_Flag="871"/>
+        </XML>
+    </RECEIVE>
+    <SEND>
+        <XML>
+        </XML>
+    </SEND>
+</ETHERNETKRL>
