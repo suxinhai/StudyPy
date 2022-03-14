@@ -1,4 +1,4 @@
-from wr import write_json_file, read_json_file
+from mechmind.wr import read_json_file
 
 file_dir_path = "C:/Users/mech-mind/Desktop/"
 """

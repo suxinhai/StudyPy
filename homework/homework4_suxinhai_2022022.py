@@ -2,7 +2,7 @@
 # @Time : 2022/2/22 12:36
 # @Author : su.xinhai
 # @Email : su.xinhai@mech-mind.net
-from wr import read_json_file
+from mechmind.wr import read_json_file
 
 import dict2xml
 

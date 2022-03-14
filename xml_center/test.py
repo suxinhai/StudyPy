@@ -2,9 +2,7 @@
 # @Time : 2022/2/23 11:22
 # @Author : su.xinhai
 # @Email : su.xinhai@mech-mind.net
-from wr import read_file
 from xml.dom.minidom import parseString
-import xmltodict
 
 file = r"XML_KUKA_MM_VISION_2.xml"
 GET_XML = '<ROBOT><TEL_ID>40</TEL_ID><M_ID>27</M_ID><J_ID>0</J_ID><POS X="1" Y="2" Z="3" A="1" B="2" C="3"></POS><PAR> Kalibrieren Ende : Ende#</PAR><T>#</T></ROBOT>'
