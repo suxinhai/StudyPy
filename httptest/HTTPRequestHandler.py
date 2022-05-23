@@ -13,18 +13,20 @@ class Resquest(BaseHTTPRequestHandler):
     def do_POST(self):
         data = self.rfile.read(int(self.headers['content-length']))
         get_msg = json.loads(data.decode("utf-8"))
-        ret_msg = self.handle_logic(get_msg)
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.end_headers()
-        self.wfile.write(json.dumps(ret_msg).encode('utf-8'))
+        self.handle_command(get_msg)
 
-    def handle_logic(self, get_msg):
+    def handle_command(self, data):
+        print(data)
         """
         :param get_msg:
         :return:
         """
-        return ""
+
+    def send(self, msg):
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps(msg).encode('utf-8'))
 
 
 if __name__ == '__main__':

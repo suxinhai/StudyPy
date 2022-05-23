@@ -17,44 +17,57 @@
 """
 
 from queue import Queue, Empty
-from threading import Thread
+import threading
 from time import sleep
+import os
 
 
-def printonehundrud(n):
-    for i in range(n):
-        print(i)
+def method():
+    print(1)
 
 
 class multiThread:
     THREAD_POOL_SIZE = 0
 
-    def __init__(self, adapter, method, size):
-        self.adapter = adapter
+    def __init__(self, method, size):
         self.THREAD_POOL_SIZE = size
+        self.filesize_dict = {}
         self.method = method
         self.work_queue = Queue()
-        self.threads = [Thread(target=self.worker, args=(self.work_queue,)) for _ in range(self.THREAD_POOL_SIZE)]
+        self.threads = [threading.Thread(target=self.worker, args=(self.work_queue,)) for _ in
+                        range(self.THREAD_POOL_SIZE)]
         for thread in self.threads:
             thread.start()
-        # self.work_queue.join()
-        # while self.threads:
-        # self.threads.pop().join()
 
     def worker(self, work_queue):
-        while not self.adapter.is_stop_adapter:
+        while True:
             try:
                 item = work_queue.get(block=True)
             except Empty:
                 break
             else:
-                self.method(item)
+                # self.method(item)
+                self.find_max_size_file(item)
                 work_queue.task_done()
+
+    def find_max_size_file(self, file):
+        try:
+            if os.path.isdir(file):
+                files = os.listdir(file)
+                for onefile in files:
+                    file_path = os.path.join(file, onefile)
+                    # print("{},{}".format(threading.current_thread().getName(), file_path))
+                    self.work_queue.put(file_path)
+            else:
+                self.filesize_dict[file] = os.path.getsize(file)
+        except Exception as e:
+            print(e)
 
 
 if __name__ == '__main__':
-    threads = multiThread(printonehundrud, 4)
-    threads.work_queue.put(100)
-    threads.work_queue.put(200)
-    threads.work_queue.put(300)
-    threads.work_queue.put(400)
+    file_threads = multiThread(method, 10)
+    file_threads.find_max_size_file(r"D:")
+
+    file_threads.work_queue.join()
+    # while file_threads.threads:
+    #     file_threads.threads.pop().join()

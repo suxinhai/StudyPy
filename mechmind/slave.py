@@ -83,4 +83,5 @@ class Slave:
 if __name__ == '__main__':
     ModBus = Slave("0.0.0.0", 503)
     ModBus.init_3x_register(5100, 20)
-    ModBus.write_register_I_3x(5101, 1)
+    ModBus.read_register_I_3x(5101, 1)
+
