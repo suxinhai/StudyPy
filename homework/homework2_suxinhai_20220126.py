@@ -2,6 +2,7 @@
 # @Time : 2022/1/26 17:17
 # @Author : su.xinhai
 # @Email : su.xinhai@mech-mind.net
+b
 """
 一、定义一个学生Student类。有下面的类属性：
 1 姓名 name
